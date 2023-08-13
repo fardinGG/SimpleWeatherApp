@@ -1,0 +1,8 @@
+To run the file, Download the entire repository in a .zip format
+Then extract the entire zip file.
+Using Visual Studio code, open the entire folder.
+Open the terminal inside VS Code and run "python app.py"
+
+Then open a web browser and run "http://127.0.0.1:5000/".
+Type a city name to check if it works. 
+Thank you :)
