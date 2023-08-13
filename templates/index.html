@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting App</title>
+    <link rel="stylesheet" href= "/static/styles.css">
+  </head>
+  
+  <body>
+    <center><h1>Weather Dashboard</h1>
+    <form method="post">
+      <div class="weather-input" >
+        <h3><label for="city">Enter a City Name</label></h3>
+        <input class="city-input" type="text" id="city" name="city" placeholder="E.g., New York, London, Tokyo">
+        <button class="search-btn" type="submit">Search</button>        
+    </form> 
+      {% if weather_data %}
+      <br><br><br>
+      <div class="weatherdata">
+        <div class="current-weather">
+          <div class="details">
+            <label>City Name</label>
+            <h2>{{ weather_data.city }}, {{ weather_data.country }} -  {{ weather_data.current_date }}</h2>
+            <label for="">Temperature:</label>
+            <h6 style="color: red;">{{ weather_data.temperature }}K</h6>
+            <label for="">Description:</label>
+            <h6>{{ weather_data.description }}</h6>
+            
+          </div>
+        </div>
+        {% endif %}
+        <label>Current Time:</label>
+        <h2 id="clock">Current Time: <span id="time">--:--:--</span></h2>
+    </center>
+    
+    
+  </body>
+  <script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('time').textContent = timeString;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+</script>
+
+</html>
